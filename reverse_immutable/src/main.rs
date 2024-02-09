@@ -9,16 +9,22 @@ fn reverse(arr: &[i32]) -> Vec<i32> {
     result
 }
 
-fn reverse_static_alloc(arr: &[i32]) -> &'static [i32] {
-    let result = [0; arr.len()];
-    let mut gradual = 0;
-    for i in (0..arr.len()).rev() {
-        result[gradual] = arr[i];
-        gradual++;
-    }
 
-    result
-}
+// i was trying to do something not typical in rust
+// that i would use in any C Style languages like C,C++,C#,js
+// it seems in rust arrays of dynamic size only exist at compile time
+// anything runtime should use vectors
+
+// fn reverse_static_alloc(arr: &[i32]) -> &'static [i32] {
+//     let result = [0; arr.len()];
+//     let mut gradual = 0;
+//     for i in (0..arr.len()).rev() {
+//         result[gradual] = arr[i];
+//         gradual++;
+//     }
+
+//     result
+// }
 
 
 fn main() {
